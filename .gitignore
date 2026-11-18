@@ -1,0 +1,33 @@
+# ===== Dependencies =====
+node_modules/
+
+# ===== Secrets / sensitive data =====
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+config/credentials.json
+
+# ===== Personal / IDE configuration =====
+.vscode/
+.idea/
+*.swp
+*.sublime-workspace
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Logs & build output =====
+logs/
+*.log
+npm-debug.log*
+dist/
+build/
+coverage/
+
+# ===== Local backups =====
+*.bundle
