@@ -10,4 +10,4 @@ app.get('/login', (req, res) => {
   res.send('Login page (placeholder)');
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`VCS Lab server listening on http://localhost:${PORT}`));
