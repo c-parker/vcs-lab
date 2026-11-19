@@ -1,0 +1,30 @@
+name: Repository Backup
+
+on:
+  schedule:
+    - cron: '0 6 * * 0'   # every Sunday 06:00 UTC
+  workflow_dispatch:       # adds a manual "Run workflow" button
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0   # full history, all branches
+
+      - name: Create git bundle
+        run: git bundle create repo-backup.bundle --all
+
+      - name: Verify bundle integrity
+        run: git bundle verify repo-backup.bundle
+
+      - name: Upload backup artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo-backup-${{ github.run_number }}
+          path: repo-backup.bundle
+          retention-days: 30
