@@ -23,7 +23,7 @@ jobs:
         run: git bundle verify repo-backup.bundle
 
       - name: Upload backup artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: repo-backup-${{ github.run_number }}
           path: repo-backup.bundle
